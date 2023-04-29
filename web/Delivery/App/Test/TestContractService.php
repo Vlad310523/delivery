@@ -10,14 +10,14 @@ class TestContractService
 	private $service;
 	public function __construct()
 	{
-		$This-> repository = new MySQLContractRepository();
-		$This-> service = new ContractService($this-> repository);
+		$this->repository= new MySQLContractRepository();
+		$this->service = new ContractService($this->repository);
 	}
 	public function shouldReturnContractByNumber()
 	{
 		try
 		{
-			print_r($this-> service-> getContractByNumber(1));
+			print_r($this-> service-> getAllContracts());
 		}
 		catch (Exception $e)
 		{
@@ -47,8 +47,8 @@ class TestContractService
 		}
 	}
 }
-$Test = new TestContractService();
-$Test-> shouldReturnContractByNumber();
-$Test-> shouldThrowExceptionWhenGetContractByUndefinedNumber();
-$Test-> shouldThrowExceptionWhenGetContractByInexistentNumber();
+$test = new TestContractService();
+$test-> shouldReturnContractByNumber();
+$test-> shouldThrowExceptionWhenGetContractByUndefinedNumber();
+$test-> shouldThrowExceptionWhenGetContractByInexistentNumber();
 ?>

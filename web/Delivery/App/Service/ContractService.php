@@ -6,7 +6,7 @@ class ContractService
 	private $repository;
 	public function __construct (ContractRepositoryInterface $repository)
 	{
-		$This-> repository = $repository;
+		$this->repository = $repository;
 	}
 	public function getAllContracts()
 	{
@@ -16,7 +16,7 @@ class ContractService
 	{
 		if (isset($number))
 		{
-			return $this-> repository-> getContractByNumber($number);
+			return $this->repository->getContractByNumber($number);
 		}
 		else
 		{
@@ -27,9 +27,9 @@ class ContractService
 	{
 		if (isset($number, $supplier, $title, $note))
 		{
-			$Agreed = date('Ym-d');
-			$Contract = new Contract ($number, $agreed, $supplier, $title, $note);
-			$This-> repository-> create($contract);
+			$agreed = date('Ym-d');
+			$contract = new Contract ($number, $agreed, $supplier, $title, $note);
+			$this-> repository-> create($contract);
 		}
 		else
 		{
@@ -40,9 +40,9 @@ class ContractService
 	{
 		if (isset($number, $supplier, $title, $note))
 		{
-			$Contract = $this-> repository->getContractByNumber($number);
-			$Updated = new Contract($number, $contract->getAgreed(), $supplier, $title, $note);
-			$This-> repository->update($updated);
+			$contract = $this-> repository->getContractByNumber($number);
+			$updated = new Contract($number, $contract->getAgreed(), $supplier, $title, $note);
+			$this-> repository->update($updated);
 		}
 		else
 		{
@@ -53,7 +53,7 @@ class ContractService
 	{
 		if (isset($number))
 		{
-			$This-> repository->delete($number);
+			$this-> repository->delete($number);
 		}
 		else
 		{

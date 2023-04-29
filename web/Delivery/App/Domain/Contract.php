@@ -24,11 +24,11 @@ class Contract
 		{
 			throw new Exception('Contract note is not set!');
 		}
-		$This-> number = $number;
-		$This-> agreed = $agreed;
-		$This-> supplier = $supplier;
-		$This-> title = $title;
-		$This-> note = $note;
+		$this-> number = $number;
+		$this-> agreed = $agreed;
+		$this-> supplier = $supplier;
+		$this-> title = $title;
+		$this-> note = $note;
 	}
 	public function getNumber()
 	{
